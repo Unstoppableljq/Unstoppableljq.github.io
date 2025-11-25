@@ -1,192 +1,296 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页</title>
-    <!-- 引入 FontAwesome 图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Jianqin Liu (刘鉴钦) - Homepage</title>
     <style>
-        /* 全局样式 */
+        /* 全局重置 */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        /* 背景动画球体 */
-        .background-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(50px);
-        }
-
-        .shape:nth-child(1) {
-            top: -10%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: #845ec2;
-            animation: move 10s infinite alternate;
-        }
-
-        .shape:nth-child(2) {
-            bottom: -10%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: #ff6f91;
-            animation: move 8s infinite alternate-reverse;
-        }
-
-        @keyframes move {
-            from { transform: translate(0, 0); }
-            to { transform: translate(50px, 50px); }
-        }
-
-        /* 卡片容器（毛玻璃效果） */
-        .card {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 20px;
-            padding: 40px;
-            width: 350px;
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            color: #fff;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* 头像 */
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.5);
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
-
-        /* 文字内容 */
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 30px;
+            font-family: 'Georgia', 'Times New Roman', Times, serif; /* 经典的学术衬线字体 */
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
         }
 
-        /* 社交链接按钮 */
-        .social-links {
+        /* 布局容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            padding: 20px;
         }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* --- 左侧导航栏 --- */
+        .sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            padding-right: 20px;
+            border-right: 1px solid #eee; /* 可选：增加分割线 */
+        }
+
+        /* LOGO区域（可选） */
+        .logo-area {
+            margin-bottom: 20px;
+        }
+        .logo-area img {
+            width: 100%;
+            max-width: 120px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 8px;
+        }
+
+        .nav-menu a {
             text-decoration: none;
-            padding: 12px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.4);
-            color: #333;
+            color: #a00; /* 学术红 */
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 16px;
+            font-family: Arial, sans-serif; /* 导航栏通常用无衬线字体 */
         }
 
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: scale(1.02);
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 右侧主要内容 --- */
+        .main-content {
+            flex-grow: 1;
+            padding-left: 30px;
+        }
+
+        /* 页头标题 */
+        .page-header h1 {
+            margin-top: 0;
+            color: #a00; /* 标题红色 */
+            font-size: 24px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        /* 个人信息简介区 */
+        .profile-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: #f9f9f9; /* 只有简介区有一点灰色背景，突出显示 */
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .profile-photo img {
+            width: 160px;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h2 {
+            margin-top: 0;
+            font-size: 20px;
             color: #000;
         }
 
-        .btn i {
-            margin-right: 10px;
-            font-size: 18px;
+        .profile-info p {
+            margin: 5px 0;
+            font-size: 15px;
         }
 
-        /* 版权 */
-        .footer {
-            margin-top: 25px;
-            font-size: 12px;
-            color: #666;
+        .profile-info a {
+            color: #a00;
+            text-decoration: none;
+        }
+        
+        .profile-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* 警告/通知框 (Looking for students) */
+        .notice-box {
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 10px 15px;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* 通用章节样式 */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #a00;
+            font-size: 18px;
+            border-bottom: 1px solid #a00; /* 红色下划线 */
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        /* 列表样式 */
+        ul.styled-list {
+            padding-left: 20px;
+        }
+        
+        ul.styled-list li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        /* 响应式设计：手机端自动调整 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .main-content {
+                padding-left: 0;
+            }
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 背景装饰 -->
-    <div class="background-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+<div class="container">
+    <!-- 左侧导航栏 -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <!-- 这里可以放学校Logo，如果没有可以删掉 -->
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/University_of_Electronic_Science_and_Technology_of_China_logo.svg/1200px-University_of_Electronic_Science_and_Technology_of_China_logo.svg.png" alt="UESTC Logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#">Homepage</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#awards">Awards</a></li>
+        </ul>
+    </aside>
 
-    <!-- 主卡片 -->
-    <div class="card">
-        <!-- 请修改这里：头像图片链接 -->
-        <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="头像" class="avatar">
+    <!-- 右侧主要内容 -->
+    <main class="main-content">
         
-        <!-- 请修改这里：你的名字 -->
-        <h1>你的名字</h1>
-        
-        <!-- 请修改这里：个人简介 -->
-        <p>全栈开发者 | 开源爱好者 | 摄影迷<br>热爱技术，分享生活。</p>
-
-        <div class="social-links">
-            <!-- 链接 1 -->
-            <a href="https://github.com/你的用户名" target="_blank" class="btn">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <!-- 链接 2 -->
-            <a href="https://twitter.com/你的用户名" target="_blank" class="btn">
-                <i class="fab fa-twitter"></i> Twitter
-            </a>
-            <!-- 链接 3 -->
-            <a href="mailto:your@email.com" class="btn">
-                <i class="fas fa-envelope"></i> 联系我
-            </a>
-            <!-- 链接 4 (博客) -->
-            <a href="#" target="_blank" class="btn">
-                <i class="fas fa-blog"></i> 个人博客
-            </a>
+        <!-- 名字标题 -->
+        <div class="page-header">
+            <h1>Jianqin Liu's Homepage (刘鉴钦)</h1>
         </div>
 
-        <div class="footer">
-            &copy; 2024 Design by Me
+        <!-- 个人简介卡片 -->
+        <div class="profile-section">
+            <div class="profile-photo">
+                <!-- 请替换下面的图片链接为你的真实照片 -->
+                <img src="https://via.placeholder.com/160x200?text=Photo" alt="Jianqin Liu">
+            </div>
+            <div class="profile-info">
+                <h2>Dr. Jianqin Liu (刘鉴钦)</h2>
+                <p><strong>Ph.D. Candidate</strong></p>
+                <p>School of Computer Science and Engineering</p>
+                <p><a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a></p>
+                <br>
+                <p><strong>Email:</strong> your.email@std.uestc.edu.cn (请修改)</p>
+                <p><strong>Location:</strong> Chengdu, China</p>
+                <p>
+                    <a href="#">Google Scholar</a> | 
+                    <a href="#">GitHub</a>
+                </p>
+            </div>
         </div>
-    </div>
+
+        <!-- Biography 个人经历 -->
+        <div class="section">
+            <h2>Biography</h2>
+            <p>
+                I am currently a Ph.D. candidate at the School of Computer Science and Engineering, 
+                <a href="https://en.uestc.edu.cn/">University of Electronic Science and Technology of China (UESTC)</a>.
+            </p>
+            <p>
+                My educational background is as follows:
+            </p>
+            <ul class="styled-list">
+                <li>
+                    <strong>Ph.D. in Computer Science and Technology</strong> (Currently)<br>
+                    University of Electronic Science and Technology of China (UESTC)<br>
+                    <em>电子科技大学，计算机科学与技术专业，博士</em>
+                </li>
+                <li>
+                    <strong>M.S. in Control Science and Engineering</strong><br>
+                    School of Automation Engineering, UESTC<br>
+                    <em>电子科技大学，自动化工程学院，控制科学与工程专业，硕士</em>
+                </li>
+                <li>
+                    <strong>B.S. in Electrical Engineering and Automation</strong><br>
+                    Chengdu University of Technology (CDUT)<br>
+                    <em>成都理工大学，电气工程及其自动化，本科</em>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Research Interests 研究兴趣 -->
+        <div class="section">
+            <h2>Research Interests</h2>
+            <p>I am interested in ... (此处填写你的研究方向，例如：Computer Vision, Deep Learning, etc.)</p>
+            <ul class="styled-list">
+                <li>Topic 1 (e.g., Object Detection)</li>
+                <li>Topic 2 (e.g., Image Restoration)</li>
+                <li>Topic 3 (e.g., AI for Science)</li>
+            </ul>
+        </div>
+
+        <!-- News 新闻动态 -->
+        <div class="section">
+            <h2>Highlights and News</h2>
+            <ul class="styled-list">
+                <li><strong>[11/2025]</strong> One paper accepted to CVPR 2026.</li>
+                <li><strong>[08/2025]</strong> Started my Ph.D. journey at UESTC.</li>
+                <li><strong>[06/2025]</strong> Received my Master's degree from UESTC.</li>
+            </ul>
+        </div>
+
+        <!-- Publications 论文列表 (如有) -->
+        <div class="section" id="publications">
+            <h2>Selected Publications</h2>
+            <ul class="styled-list">
+                <li>
+                    <strong>Paper Title Here</strong><br>
+                    <strong>Jianqin Liu</strong>, Author B, Author C.<br>
+                    <em>Conference/Journal Name, Year.</em><br>
+                    [<a href="#">PDF</a>] [<a href="#">Code</a>]
+                </li>
+            </ul>
+        </div>
+
+        <div style="font-size: 12px; color: #888; border-top: 1px solid #eee; padding-top: 10px;">
+            Last updated: Nov 2025 | Based on Academic Template
+        </div>
+
+    </main>
+</div>
 
 </body>
 </html>
