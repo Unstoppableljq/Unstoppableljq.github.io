@@ -1,639 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jianqin Liu (刘鉴钦) - Homepage</title>
-    <style>
-        /* --- 全局重置 --- */
-        * {
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jianqin Liu (刘鉴钦) - Homepage</title>
+  <style>
+    :root {
+      --green: #243d27;
+      --text: #44484d;
+      --muted: #666b70;
+      --link: #1f5a99;
+      --red: #d60000;
+      --line: #ececec;
+      --bg: #ffffff;
+      --sidebar: #f7f8f7;
+    }
 
-        :root {
-            --uestc-blue: #004098;
-            --uestc-blue-light: #0056b3;
-            --uestc-blue-soft: #eaf1fb;
-            --accent: #c8102e;        /* 暖色点缀 */
-            --text: #2c2c2c;
-            --text-soft: #555;
-            --bg: #fbfbfd;
-            --card: #ffffff;
-            --border: #e6e8ee;
-            --shadow: 0 2px 12px rgba(0, 64, 152, 0.06);
-            --shadow-hover: 0 6px 24px rgba(0, 64, 152, 0.12);
-        }
+    * { box-sizing: border-box; }
 
-        body {
-            font-family: 'Charter', 'Georgia', 'Times New Roman', Times, serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* 顶部 accent 条 */
-        body::before {
-            content: "";
-            display: block;
-            height: 4px;
-            background: linear-gradient(90deg, var(--uestc-blue) 0%, var(--uestc-blue-light) 60%, var(--accent) 100%);
-        }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
 
-        /* --- 布局容器 --- */
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            display: flex;
-            padding: 32px 24px;
-            gap: 8px;
-        }
+    body::before {
+      content: "";
+      display: block;
+      height: 8px;
+      background: var(--green);
+    }
 
-        /* --- 左侧导航栏 --- */
-        .sidebar {
-            width: 220px;
-            flex-shrink: 0;
-            padding-right: 24px;
-            border-right: 1px solid var(--border);
-            position: sticky;
-            top: 24px;
-            align-self: flex-start;
-        }
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
 
-        .logo-area {
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        .logo-area img {
-            width: 100%;
-            max-width: 130px;
-            border-radius: 6px;
-        }
+    a:hover { color: #0b3f74; }
 
-        .sidebar-name {
-            text-align: center;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-size: 13px;
-            color: var(--text-soft);
-            margin: 0 0 18px 0;
-            letter-spacing: 0.3px;
-        }
-        .sidebar-name strong {
-            display: block;
-            color: var(--uestc-blue);
-            font-size: 15px;
-            margin-bottom: 2px;
-        }
+    .topnav {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      padding: 0 28px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        .nav-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .topnav a {
+      color: #626970;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15.5px;
+      letter-spacing: .2px;
+    }
 
-        .nav-menu li {
-            margin-bottom: 2px;
-        }
+    .topnav a:first-child { color: #586068; }
+    .topnav a:hover { color: var(--green); }
 
-        .nav-menu a {
-            display: block;
-            text-decoration: none;
-            color: var(--uestc-blue);
-            font-weight: 600;
-            font-size: 15px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      max-width: 1280px;
+      margin: 0 auto;
+      gap: 46px;
+      padding: 38px 36px 64px;
+    }
 
-        .nav-menu a:hover {
-            background: var(--uestc-blue-soft);
-            border-left-color: var(--uestc-blue);
-            color: var(--uestc-blue-light);
-            transform: translateX(2px);
-        }
+    .sidebar {
+      padding: 0 8px;
+      color: var(--text);
+    }
 
-        /* --- 右侧主要内容 --- */
-        .main-content {
-            flex-grow: 1;
-            padding-left: 36px;
-            min-width: 0;
-        }
+    .avatar {
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 18px;
+      border: 1px solid #e7e7e7;
+      background: #fff;
+    }
 
-        /* 大标题 */
-        .page-header h1 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: var(--uestc-blue);
-            font-size: 28px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        .page-header .subtitle {
-            color: var(--text-soft);
-            font-size: 14px;
-            margin-bottom: 24px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
+    .name {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 0 6px;
+      letter-spacing: .2px;
+      color: #4d5358;
+    }
 
-        /* --- 个人信息区 --- */
-        .profile-section {
-            display: flex;
-            gap: 28px;
-            margin-bottom: 36px;
-            background: var(--card);
-            padding: 28px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            align-items: flex-start;
-        }
+    .affiliation {
+      font-size: 16px;
+      margin: 0 0 22px;
+      color: #3f454a;
+      font-weight: 600;
+    }
 
-        .profile-photo img {
-            width: 170px;
-            height: 215px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 3px solid #fff;
-            box-shadow: 0 4px 16px rgba(0, 64, 152, 0.15);
-        }
+    .bio-short {
+      margin: 0 0 20px;
+      color: #3f454a;
+    }
 
-        .profile-info {
-            flex: 1;
-        }
-        .profile-info h2 {
-            margin-top: 0;
-            margin-bottom: 6px;
-            font-size: 22px;
-            color: #1a1a1a;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        .profile-info .role {
-            display: inline-block;
-            background: var(--uestc-blue-soft);
-            color: var(--uestc-blue);
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
+    .side-list {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+    }
 
-        .profile-info p {
-            margin: 6px 0;
-            font-size: 15px;
-            color: var(--text-soft);
-        }
-        .profile-info .contact-line {
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px dashed var(--border);
-        }
-        .profile-info .contact-line p {
-            margin: 4px 0;
-        }
-        .profile-info .icon {
-            display: inline-block;
-            width: 18px;
-            margin-right: 6px;
-            color: var(--uestc-blue);
-        }
+    .side-list li {
+      margin: 11px 0;
+      font-size: 15px;
+      color: #3f454a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .profile-info a {
-            color: var(--uestc-blue-light);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .profile-info a:hover {
-            color: var(--uestc-blue);
-            text-decoration: underline;
-        }
+    .side-list a {
+      color: #3f454a;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-        .social-links {
-            margin-top: 12px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .social-links a {
-            display: inline-block;
-            padding: 5px 12px;
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            font-size: 13px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 500;
-            color: var(--uestc-blue);
-            transition: all 0.2s;
-        }
-        .social-links a:hover {
-            background: var(--uestc-blue);
-            color: #fff;
-            border-color: var(--uestc-blue);
-            text-decoration: none;
-            transform: translateY(-1px);
-        }
+    .side-list a:hover { color: var(--link); }
 
-        /* --- 章节样式 --- */
-        .section {
-            margin-bottom: 36px;
-        }
+    main { min-width: 0; }
 
-        .section h2 {
-            color: var(--uestc-blue);
-            font-size: 19px;
-            padding-bottom: 8px;
-            margin-bottom: 18px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 700;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .section h2::before {
-            content: "";
-            display: inline-block;
-            width: 4px;
-            height: 18px;
-            background: var(--uestc-blue);
-            margin-right: 10px;
-            border-radius: 2px;
-        }
-        .section h2::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, var(--uestc-blue) 0%, var(--border) 30%);
-        }
+    section {
+      margin-bottom: 26px;
+    }
 
-        .section p {
-            font-size: 15.5px;
-        }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 24px;
+      line-height: 1.25;
+      margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-weight: 800;
+      color: #3f454a;
+    }
 
-        /* 列表样式 */
-        ul.styled-list {
-            padding-left: 20px;
-        }
-        ul.styled-list li {
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        ul.styled-list a {
-            color: var(--uestc-blue-light);
-            text-decoration: none;
-        }
-        ul.styled-list a:hover {
-            text-decoration: underline;
-        }
+    .section-title .emoji {
+      font-size: 22px;
+      width: 24px;
+      display: inline-block;
+      text-align: center;
+    }
 
-        /* Experience 卡片 */
-        .exp-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--uestc-blue);
-            border-radius: 8px;
-            padding: 18px 22px;
-            margin-bottom: 14px;
-            box-shadow: var(--shadow);
-            transition: all 0.2s ease;
-        }
-        .exp-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
-        }
-        .exp-card.highlight {
-            border-left-color: var(--accent);
-            background: linear-gradient(135deg, #fff 0%, #fff8f6 100%);
-        }
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 6px;
-        }
-        .exp-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a1a1a;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        .exp-org {
-            color: var(--uestc-blue);
-            font-weight: 600;
-        }
-        .exp-time {
-            font-size: 13px;
-            color: var(--text-soft);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: var(--uestc-blue-soft);
-            padding: 3px 10px;
-            border-radius: 12px;
-        }
-        .exp-card.highlight .exp-time {
-            background: #ffe9e4;
-            color: var(--accent);
-        }
-        .exp-desc {
-            color: var(--text-soft);
-            font-size: 14.5px;
-            margin: 8px 0 0 0;
-            line-height: 1.65;
-        }
-        .exp-tags {
-            margin-top: 10px;
-        }
-        .exp-tag {
-            display: inline-block;
-            font-size: 12px;
-            padding: 2px 9px;
-            border-radius: 10px;
-            background: var(--uestc-blue-soft);
-            color: var(--uestc-blue);
-            margin-right: 5px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
+    .content-list {
+      margin: 0;
+      padding-left: 24px;
+    }
 
-        /* News 时间线样式 */
-        .news-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-            border-left: 2px solid var(--border);
-        }
-        .news-list li {
-            position: relative;
-            padding: 6px 0 12px 22px;
-            font-size: 15px;
-            transition: background 0.2s;
-            border-radius: 4px;
-        }
-        .news-list li::before {
-            content: "";
-            position: absolute;
-            left: -7px;
-            top: 14px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--uestc-blue);
-            border: 3px solid var(--bg);
-            box-shadow: 0 0 0 1px var(--uestc-blue);
-        }
-        .news-list li:hover {
-            background: var(--uestc-blue-soft);
-            padding-left: 26px;
-        }
-        .news-list li:hover::before {
-            background: var(--accent);
-            box-shadow: 0 0 0 1px var(--accent);
-        }
-        .news-list .news-date {
-            display: inline-block;
-            font-weight: 700;
-            color: var(--uestc-blue);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-size: 13px;
-            margin-right: 6px;
-        }
+    .content-list li {
+      margin: 7px 0;
+      padding-left: 2px;
+    }
 
-        /* Research interests pills */
-        .interests-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        .interest-pill {
-            background: linear-gradient(135deg, var(--uestc-blue-soft) 0%, #fff 100%);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 500;
-            color: var(--uestc-blue);
-            transition: all 0.2s;
-        }
-        .interest-pill:hover {
-            background: var(--uestc-blue);
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
+    .date {
+      font-style: italic;
+      font-weight: 800;
+      margin-right: 8px;
+      color: #4c5257;
+      white-space: nowrap;
+    }
 
-        .footer {
-            font-size: 12px;
-            color: #999;
-            border-top: 1px solid var(--border);
-            padding-top: 14px;
-            margin-top: 30px;
-            text-align: center;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
+    .highlight-red { color: var(--red); font-weight: 800; }
 
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 16px;
-            }
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                margin-bottom: 20px;
-                padding-bottom: 16px;
-                padding-right: 0;
-                position: static;
-            }
-            .main-content {
-                padding-left: 0;
-            }
-            .profile-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .profile-info .contact-line {
-                text-align: left;
-            }
-        }
-    </style>
+    .tag {
+      display: inline-block;
+      padding: 1px 8px;
+      margin-left: 5px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #fff;
+      background: #2b6f9f;
+      border-radius: 3px;
+      vertical-align: 1px;
+    }
+
+    .pub-note {
+      margin: 4px 0 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .pub-group {
+      margin: 18px 0 6px;
+      font-size: 18px;
+      font-weight: 800;
+      color: #3f454a;
+    }
+
+    .pub-list {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .pub-list li {
+      margin: 10px 0 14px;
+    }
+
+    .paper-title {
+      font-weight: 800;
+      color: #2f353a;
+    }
+
+    .venue {
+      font-style: italic;
+      color: #3f454a;
+    }
+
+    .links a {
+      margin-right: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .topnav {
+        overflow-x: auto;
+        gap: 22px;
+        padding: 0 18px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding: 28px 22px 48px;
+      }
+
+      .sidebar {
+        text-align: center;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 24px;
+      }
+
+      .side-list {
+        display: inline-block;
+        text-align: left;
+      }
+
+      .two-column { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+  <nav class="topnav">
+    <a href="#home">Homepage</a>
+    <a href="#about">About Me</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#honors">Honors and Awards</a>
+    <a href="#education">Educations</a>
+  </nav>
 
-<div class="container">
-    <!-- 左侧导航栏 -->
+  <div class="layout" id="home">
     <aside class="sidebar">
-        <div class="logo-area">
-            <img src="logo.png" alt="UESTC Logo">
-        </div>
-        <p class="sidebar-name">
-            <strong>Jianqin Liu</strong>
-            刘鉴钦
-        </p>
-        <ul class="nav-menu">
-            <li><a href="#">Homepage</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#awards">Awards</a></li>
-        </ul>
+      <img class="avatar" src="person_image.jpg" alt="Jianqin Liu">
+      <h1 class="name">Jianqin Liu</h1>
+      <p class="affiliation">刘鉴钦<br>University of Electronic Science and Technology of China</p>
+      <p class="bio-short">
+        Ph.D. candidate at UESTC. Focusing on computer vision, multimodal learning, medical imaging, and zero-shot anomaly detection.
+      </p>
+      <ul class="side-list">
+        <li>📍 Chengdu / Hangzhou, China</li>
+        <li>✉️ <a href="mailto:liujianqin1@gmail.com">Email</a></li>
+        <li>💻 <a href="https://github.com/Unstoppableljq?tab=repositories" target="_blank">Github</a></li>
+        <li>🎓 <a href="#" target="_blank">Google Scholar</a></li>
+        <li>📄 <a href="#" target="_blank">CV</a></li>
+      </ul>
     </aside>
 
-    <!-- 右侧主要内容 -->
-    <main class="main-content">
+    <main>
+      <section id="about">
+        <h2 class="section-title"><span class="emoji">😊</span>About Me</h2>
+        <ul class="content-list">
+          <li>
+            I am a Ph.D. candidate at the School of Computer Science and Engineering, <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a>.
+            I am also a research intern at <strong>Alibaba DAMO Academy</strong>, working on multimodal large language models for medical imaging.
+          </li>
+          <li>
+            My research interests include <em>computer vision</em>, <em>multimodal large language models</em>, <em>medical imaging</em>, and <em>zero-shot anomaly detection</em>.
+          </li>
+          <li>
+            I received my M.S. degree in Control Science and Engineering from UESTC and my B.S. degree in Electrical Engineering and Automation from Chengdu University of Technology.
+          </li>
+        </ul>
+      </section>
 
-        <!-- 名字标题 -->
-        <div class="page-header">
-            <h1>Jianqin Liu's Homepage</h1>
-            <div class="subtitle">刘鉴钦 · Ph.D. Candidate at UESTC</div>
-        </div>
+      <section id="news">
+        <h2 class="section-title"><span class="emoji">🔥</span>News</h2>
+        <ul class="content-list">
+          <li><span class="date">2026.03:</span> One paper accepted to <strong>CVPR 2026 Findings</strong>.</li>
+          <li><span class="date">2026.03:</span> Started my Ph.D. journey at <strong>UESTC</strong>.</li>
+          <li><span class="date">2026.01:</span> Started my research internship at <strong>Alibaba DAMO Academy</strong>.</li>
+          <li><span class="date">2025.11:</span> One paper submitted to <strong>CVPR 2026</strong>.</li>
+          <li><span class="date">2023.09:</span> Started my master's study at <strong>UESTC</strong>.</li>
+        </ul>
+      </section>
 
-        <!-- 个人简介卡片 -->
-        <div class="profile-section">
-            <div class="profile-photo">
-                <img src="person_image.jpg" alt="Jianqin Liu">
-            </div>
-            <div class="profile-info">
-                <h2>Jianqin Liu (刘鉴钦)</h2>
-                <span class="role">Ph.D. Candidate</span>
-                <p>School of Computer Science and Engineering</p>
-                <p><a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a></p>
-                <p style="margin-top: 8px;">Research Intern @ <strong style="color: var(--accent);">Alibaba DAMO Academy</strong></p>
+      <section id="publications">
+        <h2 class="section-title"><span class="emoji">📚</span>Selected Publications</h2>
+        <p class="pub-note">* More publications and project links will be updated soon.</p>
 
-                <div class="contact-line">
-                    <p><span class="icon">✉</span><strong>Email:</strong> liujianqin1@gmail.com</p>
-                    <p><span class="icon">⌖</span><strong>Location:</strong> Chengdu / Hangzhou, China</p>
-                </div>
+        <h3 class="pub-group">Multimodal Learning & Medical Imaging</h3>
+        <ul class="pub-list">
+          <li>
+            <span class="paper-title">Paper Title to Be Updated.</span><br>
+            <strong>Jianqin Liu</strong>, Co-authors.<br>
+            <span class="venue">CVPR 2026 Findings.</span>
+            <span class="links"><a href="#">[pdf]</a><a href="#">[code]</a><a href="#">[project]</a></span>
+          </li>
+        </ul>
 
-                <div class="social-links">
-                    <a href="#" target="_blank">Google Scholar</a>
-                    <a href="https://github.com/Unstoppableljq?tab=repositories" target="_blank">GitHub</a>
-                    <a href="#" target="_blank">CV</a>
-                </div>
-            </div>
-        </div>
+        <h3 class="pub-group">Zero-shot Anomaly Detection</h3>
+        <ul class="pub-list">
+          <li>
+            <span class="paper-title">Zero-shot Anomaly Detection Project.</span><br>
+            <strong>Jianqin Liu</strong>, Co-authors.<br>
+            <span class="venue">Manuscript / project information to be updated.</span>
+            <span class="links"><a href="#">[pdf]</a><a href="#">[code]</a></span>
+          </li>
+        </ul>
+      </section>
 
-        <!-- Biography -->
-        <div class="section">
-            <h2>Biography</h2>
-            <p>
-                I am currently a Ph.D. candidate at the School of Computer Science and Engineering,
-                <a href="https://en.uestc.edu.cn/" style="color: var(--uestc-blue-light); text-decoration: none;">University of Electronic Science and Technology of China (UESTC)</a>.
-                I am also a research intern at <strong>Alibaba DAMO Academy</strong>, working on multimodal large language models for medical imaging.
-            </p>
-            <p>My educational background is as follows:</p>
-            <ul class="styled-list">
-                <li>
-                    <strong>Ph.D. in Computer Science and Technology</strong> (Currently)<br>
-                    University of Electronic Science and Technology of China (UESTC)<br>
-                    <em>电子科技大学，计算机科学与技术专业，博士</em>
-                </li>
-                <li>
-                    <strong>M.S. in Control Science and Engineering</strong><br>
-                    School of Automation Engineering, UESTC<br>
-                    <em>电子科技大学，自动化工程学院，控制科学与工程专业，硕士</em>
-                </li>
-                <li>
-                    <strong>B.S. in Electrical Engineering and Automation</strong><br>
-                    Chengdu University of Technology (CDUT)<br>
-                    <em>成都理工大学，电气工程及其自动化，本科</em>
-                </li>
-            </ul>
-        </div>
+      <section id="honors">
+        <h2 class="section-title"><span class="emoji">🏆</span>Honors and Awards</h2>
+        <ul class="content-list">
+          <li>One paper accepted to <strong>CVPR 2026 Findings</strong>, 2026.</li>
+          <li>Additional honors and awards will be updated soon.</li>
+        </ul>
+      </section>
 
-        <!-- Experience  -->
-        <div class="section" id="experience">
-            <h2>Experience</h2>
+      <section id="education">
+        <h2 class="section-title"><span class="emoji">🎓</span>Educations</h2>
+        <ul class="content-list">
+          <li><span class="date">2026.03 - Present:</span> Ph.D. in Computer Science and Technology, UESTC.</li>
+          <li><span class="date">2023.09 - 2026.03:</span> M.S. in Control Science and Engineering, School of Automation Engineering, UESTC.</li>
+          <li><span class="date">Before 2023:</span> B.S. in Electrical Engineering and Automation, Chengdu University of Technology.</li>
+        </ul>
+      </section>
 
-            <div class="exp-card highlight">
-                <div class="exp-header">
-                    <div class="exp-title">
-                        Research Intern · <span class="exp-org">Alibaba DAMO Academy</span>
-                    </div>
-                    <span class="exp-time">2026.01 — Present</span>
-                </div>
-                <p class="exp-desc">
-                    Working on <strong>multimodal large language models (MLLMs) for medical imaging</strong>
-                </p>
-                <div class="exp-tags">
-                    <span class="exp-tag">MLLM</span>
-                    <span class="exp-tag">Medical Imaging</span>
-                    <span class="exp-tag">Vision-Language Alignment</span>
-                </div>
-            </div>
+      <section id="services">
+        <h2 class="section-title"><span class="emoji">📝</span>Professional Services</h2>
+        <ul class="content-list">
+          <li>Reviewer and academic service information will be updated soon.</li>
+        </ul>
+      </section>
 
-            <div class="exp-card">
-                <div class="exp-header">
-                    <div class="exp-title">
-                        Ph.D. Student · <span class="exp-org">UESTC</span>
-                    </div>
-                    <span class="exp-time">2026.03 — Present</span>
-                </div>
-                <p class="exp-desc">
-                    Research on computer vision, with emphasis on zero-shot anomaly detection and multimodal learning.
-                </p>
-            </div>
-        </div>
+      <section id="internships">
+        <h2 class="section-title"><span class="emoji">💼</span>Internships</h2>
+        <ul class="content-list">
+          <li><span class="date">2026.01 - Present:</span> Research Intern, <strong>Alibaba DAMO Academy</strong>.</li>
+        </ul>
+      </section>
 
-        <!-- Research Interests -->
-        <div class="section">
-            <h2>Research Interests</h2>
-            <p>I am interested in computer vision problems. Typically, I work on:</p>
-            <div class="interests-grid">
-                <span class="interest-pill">Zero-shot Anomaly Detection (ZSAD)</span>
-                <span class="interest-pill">Multimodal Large Language Model (MLLM)</span>
-                <span class="interest-pill">Medical Imaging</span>
-            </div>
-        </div>
-
-        <!-- News -->
-        <div class="section">
-            <h2>Highlights and News</h2>
-            <ul class="news-list">
-                <li><span class="news-date">[03/2026]</span>🎉 One paper has been accepted to <strong>CVPR 2026</strong> Findings!</li>
-                <li><span class="news-date">[03/2026]</span>I started my Ph.D. journey at UESTC.</li>
-                <li><span class="news-date">[11/2025]</span>One paper submitted to CVPR 2026.</li>
-                <li><span class="news-date">[2025]</span>Joined <strong>Alibaba DAMO Academy</strong> as a research intern.</li>
-                <li><span class="news-date">[09/2023]</span>Started my Master's degree at UESTC.</li>
-            </ul>
-        </div>
-
-        <!-- Publications (commented placeholder) -->
-        <!--
-        <div class="section" id="publications">
-            <h2>Selected Publications</h2>
-            <ul class="styled-list">
-                <li>
-                    <strong>Paper Title Here</strong><br>
-                    <strong>Jianqin Liu</strong>, Author B, Author C.<br>
-                    <em>Conference/Journal Name, Year.</em><br>
-                    [<a href="#">PDF</a>] [<a href="#">Code</a>]
-                </li>
-            </ul>
-        </div>
-        -->
-
-        <div class="footer">
-            Last updated: May 2026 &nbsp;·&nbsp; Based on Academic Template
-        </div>
-
+      <div class="footer">
+        Last updated: May 2026 · Template style inspired by a concise academic homepage layout.
+      </div>
     </main>
-</div>
-
+  </div>
 </body>
 </html>
