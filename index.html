@@ -8,16 +8,15 @@
     :root {
       --green: #243d27;
       --text: #44484d;
-      --muted: #666b70;
-      --link: #1f5a99;
-      --red: #d60000;
-      --line: #ececec;
+      --muted: #656b70;
+      --link: #174a84;
+      --line: #eeeeee;
+      --badge: #4a4f54;
+      --badge-light: #eeeeee;
       --bg: #ffffff;
-      --sidebar: #f7f8f7;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -25,8 +24,9 @@
       background: var(--bg);
       color: var(--text);
       font-family: "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
+      font-size: 14px;
+      line-height: 1.55;
+      letter-spacing: .1px;
     }
 
     body::before {
@@ -40,16 +40,16 @@
       color: var(--link);
       text-decoration: underline;
       text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
     }
-
-    a:hover { color: #0b3f74; }
+    a:hover { color: #0b3769; }
 
     .topnav {
-      height: 60px;
+      height: 52px;
       display: flex;
       align-items: center;
-      gap: 34px;
-      padding: 0 28px;
+      gap: 30px;
+      padding: 0 24px;
       border-bottom: 1px solid var(--line);
       background: #fff;
       position: sticky;
@@ -61,67 +61,69 @@
       color: #626970;
       text-decoration: none;
       font-weight: 700;
-      font-size: 15.5px;
-      letter-spacing: .2px;
+      font-size: 14px;
+      letter-spacing: .15px;
+      white-space: nowrap;
     }
-
-    .topnav a:first-child { color: #586068; }
+    .topnav a:first-child { color: #4e565d; }
     .topnav a:hover { color: var(--green); }
 
     .layout {
       display: grid;
-      grid-template-columns: 260px minmax(0, 1fr);
-      max-width: 1280px;
+      grid-template-columns: 230px minmax(0, 1fr);
+      max-width: 1260px;
       margin: 0 auto;
-      gap: 46px;
-      padding: 38px 36px 64px;
+      gap: 42px;
+      padding: 34px 34px 56px;
     }
 
     .sidebar {
-      padding: 0 8px;
+      padding: 0 4px;
       color: var(--text);
     }
 
     .avatar {
-      width: 185px;
-      height: 185px;
+      width: 170px;
+      height: 170px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
-      margin: 0 auto 18px;
-      border: 1px solid #e7e7e7;
+      margin: 0 auto 16px;
+      border: 1px solid #e8e8e8;
       background: #fff;
     }
 
     .name {
-      font-size: 24px;
+      font-size: 21px;
       font-weight: 800;
       margin: 0 0 6px;
       letter-spacing: .2px;
-      color: #4d5358;
+      color: #4a5056;
     }
 
     .affiliation {
-      font-size: 16px;
-      margin: 0 0 22px;
-      color: #3f454a;
+      font-size: 14px;
+      margin: 0 0 18px;
+      color: #42484d;
       font-weight: 600;
     }
 
     .bio-short {
-      margin: 0 0 20px;
+      margin: 0 0 18px;
       color: #3f454a;
+      font-size: 14px;
+      line-height: 1.58;
     }
 
     .side-list {
       list-style: none;
       padding: 0;
-      margin: 22px 0 0;
+      margin: 20px 0 0;
     }
 
     .side-list li {
-      margin: 11px 0;
-      font-size: 15px;
+      margin: 10px 0;
+      font-size: 13.5px;
       color: #3f454a;
       display: flex;
       align-items: center;
@@ -133,22 +135,18 @@
       text-decoration: none;
       font-weight: 600;
     }
-
     .side-list a:hover { color: var(--link); }
 
     main { min-width: 0; }
-
-    section {
-      margin-bottom: 26px;
-    }
+    section { margin-bottom: 25px; }
 
     .section-title {
       display: flex;
       align-items: center;
-      gap: 9px;
-      font-size: 24px;
+      gap: 8px;
+      font-size: 22px;
       line-height: 1.25;
-      margin: 0 0 14px;
+      margin: 0 0 13px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--line);
       font-weight: 800;
@@ -156,94 +154,125 @@
     }
 
     .section-title .emoji {
-      font-size: 22px;
+      font-size: 20px;
       width: 24px;
       display: inline-block;
       text-align: center;
     }
 
-    .content-list {
+    .content-list,
+    .edu-list,
+    .intern-list {
       margin: 0;
-      padding-left: 24px;
+      padding-left: 22px;
     }
 
-    .content-list li {
+    .content-list li,
+    .edu-list li,
+    .intern-list li {
       margin: 7px 0;
-      padding-left: 2px;
+      padding-left: 3px;
+      font-size: 14px;
     }
 
     .date {
       font-style: italic;
       font-weight: 800;
-      margin-right: 8px;
+      margin-right: 6px;
       color: #4c5257;
       white-space: nowrap;
     }
 
-    .highlight-red { color: var(--red); font-weight: 800; }
-
-    .tag {
-      display: inline-block;
-      padding: 1px 8px;
-      margin-left: 5px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #fff;
-      background: #2b6f9f;
-      border-radius: 3px;
-      vertical-align: 1px;
-    }
+    .red { color: #e00000; font-weight: 800; }
 
     .pub-note {
       margin: 4px 0 12px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 13.5px;
+      font-weight: 650;
     }
 
     .pub-group {
-      margin: 18px 0 6px;
-      font-size: 18px;
+      margin: 16px 0 6px;
+      font-size: 16px;
       font-weight: 800;
-      color: #3f454a;
+      color: #4a5056;
     }
 
     .pub-list {
       margin: 0;
-      padding-left: 24px;
+      padding-left: 26px;
     }
 
     .pub-list li {
-      margin: 10px 0 14px;
+      margin: 8px 0 12px;
+      padding-left: 2px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 1.35;
+      padding: 2px 8px;
+      margin-right: 4px;
+      border-radius: 2px;
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    .badge.venue {
+      color: #fff;
+      background: var(--badge);
+      font-style: normal;
+    }
+
+    .badge.year {
+      color: #333;
+      background: var(--badge-light);
+      border: 1px solid #dddddd;
     }
 
     .paper-title {
+      color: var(--link);
+      font-weight: 650;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .authors strong { font-weight: 800; }
+    .journal { font-style: italic; }
+
+    .paper-links a {
+      margin-left: 6px;
       font-weight: 800;
-      color: #2f353a;
+      font-size: 13.5px;
     }
 
-    .venue {
-      font-style: italic;
-      color: #3f454a;
-    }
-
-    .links a {
-      margin-right: 8px;
-      font-size: 14px;
+    .github-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      height: 21px;
+      padding: 1px 7px;
+      margin-left: 4px;
+      border: 1px solid #d5d5d5;
+      background: #f5f5f5;
+      color: #333;
+      border-radius: 3px;
+      font-size: 12px;
       font-weight: 700;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      text-decoration: none;
+      vertical-align: -2px;
     }
 
     .footer {
-      margin-top: 42px;
-      padding-top: 16px;
+      margin-top: 38px;
+      padding-top: 14px;
       border-top: 1px solid var(--line);
       color: #888;
-      font-size: 13px;
+      font-size: 12.5px;
     }
 
     @media (max-width: 860px) {
@@ -252,25 +281,20 @@
         gap: 22px;
         padding: 0 18px;
       }
-
       .layout {
         grid-template-columns: 1fr;
         gap: 26px;
-        padding: 28px 22px 48px;
+        padding: 28px 22px 46px;
       }
-
       .sidebar {
         text-align: center;
         border-bottom: 1px solid var(--line);
         padding-bottom: 24px;
       }
-
       .side-list {
         display: inline-block;
         text-align: left;
       }
-
-      .two-column { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -282,6 +306,7 @@
     <a href="#publications">Publications</a>
     <a href="#honors">Honors and Awards</a>
     <a href="#education">Educations</a>
+    <a href="#internships">Internships</a>
   </nav>
 
   <div class="layout" id="home">
@@ -306,14 +331,12 @@
         <h2 class="section-title"><span class="emoji">😊</span>About Me</h2>
         <ul class="content-list">
           <li>
-            I am a Ph.D. candidate at the School of Computer Science and Engineering, <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a>.
+            I am a Ph.D. candidate at the School of Computer Science and Engineering,
+            <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a>.
             I am also a research intern at <strong>Alibaba DAMO Academy</strong>, working on multimodal large language models for medical imaging.
           </li>
           <li>
             My research interests include <em>computer vision</em>, <em>multimodal large language models</em>, <em>medical imaging</em>, and <em>zero-shot anomaly detection</em>.
-          </li>
-          <li>
-            I received my M.S. degree in Control Science and Engineering from UESTC and my B.S. degree in Electrical Engineering and Automation from Chengdu University of Technology.
           </li>
         </ul>
       </section>
@@ -330,59 +353,66 @@
       </section>
 
       <section id="publications">
-        <h2 class="section-title"><span class="emoji">📚</span>Selected Publications</h2>
-        <p class="pub-note">* More publications and project links will be updated soon.</p>
+        <h2 class="section-title"><span class="emoji">📝</span>Selected Publications</h2>
+        <p class="pub-note">†: equal contribution; *: corresponding author. <a href="#">(all publications)</a></p>
 
-        <h3 class="pub-group">Multimodal Learning & Medical Imaging</h3>
+        <h3 class="pub-group">Zero-shot Anomaly Detection & Vision-Language Learning 💪</h3>
         <ul class="pub-list">
           <li>
-            <span class="paper-title">Paper Title to Be Updated.</span><br>
-            <strong>Jianqin Liu</strong>, Co-authors.<br>
-            <span class="venue">CVPR 2026 Findings.</span>
-            <span class="links"><a href="#">[pdf]</a><a href="#">[code]</a><a href="#">[project]</a></span>
+            <span class="badge venue">CVPR Findings</span><span class="badge year">2026</span>
+            <a class="paper-title" href="#">DA-CLIP: Mitigating Granularity Mismatch in Zero-Shot Anomaly Detection via Decoupled Text-Visual Alignment</a>,
+            <span class="authors"><strong>Jianqin Liu</strong>, Peng Wang, Junming Huang, Xue Zhou, Li Yu.</span>
+            <span class="journal">CVPR 2026 Findings.</span>
+            <span class="paper-links"><a href="#">[pdf]</a><a href="#">[code]</a><a href="#">[project]</a></span>
           </li>
         </ul>
 
-        <h3 class="pub-group">Zero-shot Anomaly Detection</h3>
+        <!-- <h3 class="pub-group">Zero-shot Anomaly Detection & Vision-Language Learning 🔍</h3>
         <ul class="pub-list">
           <li>
-            <span class="paper-title">Zero-shot Anomaly Detection Project.</span><br>
-            <strong>Jianqin Liu</strong>, Co-authors.<br>
-            <span class="venue">Manuscript / project information to be updated.</span>
-            <span class="links"><a href="#">[pdf]</a><a href="#">[code]</a></span>
+            <span class="badge venue">Project</span><span class="badge year">2025</span>
+            <a class="paper-title" href="#">Zero-shot Anomaly Detection Project</a>,
+            <span class="authors"><strong>Jianqin Liu</strong>, Co-authors.</span>
+            <span class="journal">Manuscript / project information to be updated.</span>
+            <span class="paper-links"><a href="#">[code]</a></span>
+            <a class="github-badge" href="#">● Stars</a>
           </li>
-        </ul>
+        </ul> -->
       </section>
 
-      <section id="honors">
+      <!-- <section id="honors">
         <h2 class="section-title"><span class="emoji">🏆</span>Honors and Awards</h2>
         <ul class="content-list">
           <li>One paper accepted to <strong>CVPR 2026 Findings</strong>, 2026.</li>
           <li>Additional honors and awards will be updated soon.</li>
         </ul>
-      </section>
+      </section> -->
 
       <section id="education">
-        <h2 class="section-title"><span class="emoji">🎓</span>Educations</h2>
-        <ul class="content-list">
-          <li><span class="date">2026.03 - Present:</span> Ph.D. in Computer Science and Technology, UESTC.</li>
-          <li><span class="date">2023.09 - 2026.03:</span> M.S. in Control Science and Engineering, School of Automation Engineering, UESTC.</li>
-          <li><span class="date">Before 2023:</span> B.S. in Electrical Engineering and Automation, Chengdu University of Technology.</li>
-        </ul>
-      </section>
-
-      <section id="services">
-        <h2 class="section-title"><span class="emoji">📝</span>Professional Services</h2>
-        <ul class="content-list">
-          <li>Reviewer and academic service information will be updated soon.</li>
+        <h2 class="section-title"><span class="emoji">📖</span>Educations</h2>
+        <ul class="edu-list">
+          <li><span class="date">2026.03 - (now),</span> Ph.D. in Computer Science and Technology, School of Computer Science and Engineering, <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China</a>.</li>
+          <li><span class="date">2023.09 - 2026.03,</span> Master of Control Science and Engineering, School of Automation Engineering, <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China</a>.</li>
+          <li><span class="date">Before 2023,</span> Bachelor of Electrical Engineering and Automation, <a href="#">Chengdu University of Technology</a>.</li>
         </ul>
       </section>
 
       <section id="internships">
-        <h2 class="section-title"><span class="emoji">💼</span>Internships</h2>
-        <ul class="content-list">
-          <li><span class="date">2026.01 - Present:</span> Research Intern, <strong>Alibaba DAMO Academy</strong>.</li>
+        <h2 class="section-title"><span class="emoji">💻</span>Internships</h2>
+        <ul class="intern-list">
+          <li><span class="date">2026.01 - (now),</span> Alibaba DAMO Academy, Research Intern.</li>
         </ul>
+      </section>
+
+      <!-- <section id="services">
+        <h2 class="section-title"><span class="emoji">🧩</span>Professional Services</h2>
+        <ul class="content-list">
+          <li>Reviewer and academic service information will be updated soon.</li>
+        </ul>
+      </section> -->
+      <section id="visitors" class="visitor-section">
+        <h2 class="section-title"><span class="emoji">🌍</span>Visitors</h2>
+        <img class="visitor-map" src="visitor_map.png" alt="Homepage visitor map and pageviews">
       </section>
 
       <div class="footer">
