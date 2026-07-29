@@ -137,44 +137,6 @@
     }
     .side-list a:hover { color: var(--link); }
 
-    .visitor-map {
-      max-width: 220px;
-      margin: 24px auto 0;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-    }
-
-    .visitor-map-title {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin: 0 0 9px;
-      color: #4a5056;
-      font-size: 13.5px;
-      font-weight: 800;
-    }
-
-    .visitor-map-frame {
-      width: 100%;
-      min-height: 180px;
-      overflow: hidden;
-      border: 1px solid #e5e7e9;
-      border-radius: 4px;
-      background: #fafafa;
-      text-align: center;
-    }
-
-    .visitor-map-frame > * {
-      max-width: 100% !important;
-    }
-
-    .visitor-map-note {
-      margin: 7px 0 0;
-      color: var(--muted);
-      font-size: 11.5px;
-      text-align: center;
-    }
-
     main { min-width: 0; }
     section { margin-bottom: 25px; }
 
@@ -252,24 +214,25 @@
     .badge {
       display: inline-block;
       font-size: 12px;
-      line-height: 1.35;
-      padding: 2px 8px;
-      margin-right: 4px;
-      border-radius: 2px;
+      line-height: 1.45;
+      padding: 2px 9px;
       vertical-align: 1px;
       white-space: nowrap;
     }
 
     .badge.venue {
       color: #fff;
-      background: var(--badge);
+      background: #4a4a4a;
+      border-radius: 5px 0 0 5px;
+      margin-right: 0;
       font-style: normal;
     }
 
     .badge.year {
       color: #333;
-      background: var(--badge-light);
-      border: 1px solid #dddddd;
+      background: #f1f1f1;
+      border-radius: 0 5px 5px 0;
+      margin-right: 6px;
     }
 
     .paper-title {
@@ -286,6 +249,18 @@
       margin-left: 6px;
       font-weight: 800;
       font-size: 13.5px;
+    }
+
+    .paper-links .github-stars {
+      display: inline-block;
+      vertical-align: -5px;
+      text-decoration: none;
+    }
+
+    .github-stars img {
+      display: block;
+      height: 20px;
+      width: auto;
     }
 
     .github-badge {
@@ -362,16 +337,6 @@
         <li>🎓 <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=U4UEg1kAAAAJ" target="_blank">Google Scholar</a></li>
         <!-- <li>📄 <a href="#" target="_blank">CV</a></li> -->
       </ul>
-
-      <div class="visitor-map">
-        <p class="visitor-map-title"><span aria-hidden="true">🌍</span>Live Visitors</p>
-        <div class="visitor-map-frame">
-          <!-- FeedPulse site: unstoppableljq.github.io -->
-          <script async src="https://visitor-tracker-129.emergent.host/api/embed/visitor-globe.js?site_id=500e1015-29c3-4863-b7c9-a7203e492f64&amp;map=flat&amp;sz=sm&amp;theme=ivory&amp;speed=off&amp;w=100%25&amp;h=180"></script>
-          <noscript><a href="https://feed-pulse.com/free-visitor-globe-widget" target="_blank" rel="noopener noreferrer">View visitor map</a></noscript>
-        </div>
-        <p class="visitor-map-note">Visitor locations around the world</p>
-      </div>
     </aside>
 
     <main>
@@ -381,7 +346,7 @@
           <li>
             I am a Ph.D. candidate at the School of Computer Science and Engineering,
             <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a>.
-            I am advised by <a href="https://wp8619.github.io/" target="_blank" rel="noopener noreferrer"><strong>Prof. Peng Wang</strong></a>.
+            I am supervised by <a href="https://wp8619.github.io/" target="_blank" rel="noopener noreferrer"><strong>Prof. Peng Wang</strong></a>.
             I am also a research intern at <strong>Alibaba DAMO Academy</strong>, working on multimodal large language models for medical imaging.
           </li>
           <li>
@@ -413,7 +378,7 @@
             <a class="paper-title" href="https://arxiv.org/abs/2607.22293" target="_blank">RadSight: Towards Perceptually Reliable Multimodal Radiology Image Understanding</a>,
             <span class="authors"><strong>Jianqin Liu</strong><sup>†</sup>, Weiwei Cao<sup>†</sup>, Wanxing Chang<sup>†</sup>, Ruifeng Yuan<sup>†</sup>, Bowen Shi<sup>†</sup>, Zhilin Zheng, Xianjie Zhang, Ling Zhang, Peng Wang<sup>*</sup>, Jianpeng Zhang<sup>*</sup>.</span>
             <span class="journal">arXiv preprint arXiv:2607.22293.</span>
-            <span class="paper-links"><a href="https://arxiv.org/abs/2607.22293" target="_blank">[arXiv]</a><a href="https://github.com/alibaba-damo-academy/damo-RadSight" target="_blank">[code]</a><a href="https://huggingface.co/unstoppableljq/RadSight-4B" target="_blank">[HF-4B]</a><a href="https://huggingface.co/unstoppableljq/RadSight-8B" target="_blank">[HF-8B]</a></span>
+            <span class="paper-links"><a href="https://arxiv.org/abs/2607.22293" target="_blank">[arXiv]</a><a href="https://github.com/alibaba-damo-academy/damo-RadSight" target="_blank">[code]</a><a href="https://huggingface.co/unstoppableljq/RadSight-4B" target="_blank">[HF-4B]</a><a href="https://huggingface.co/unstoppableljq/RadSight-8B" target="_blank">[HF-8B]</a><a class="github-stars" href="https://github.com/alibaba-damo-academy/damo-RadSight/stargazers" target="_blank" rel="noopener noreferrer" title="View RadSight stars on GitHub"><img src="https://img.shields.io/github/stars/alibaba-damo-academy/damo-RadSight?style=flat-square&amp;logo=github&amp;logoColor=white&amp;label=Stars&amp;labelColor=4a4a4a&amp;color=f1f1f1" alt="RadSight GitHub stars" loading="lazy"></a></span>
           </li>
         </ul>
 
