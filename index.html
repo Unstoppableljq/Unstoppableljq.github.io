@@ -137,6 +137,44 @@
     }
     .side-list a:hover { color: var(--link); }
 
+    .visitor-map {
+      max-width: 220px;
+      margin: 24px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .visitor-map-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 9px;
+      color: #4a5056;
+      font-size: 13.5px;
+      font-weight: 800;
+    }
+
+    .visitor-map-frame {
+      width: 100%;
+      min-height: 180px;
+      overflow: hidden;
+      border: 1px solid #e5e7e9;
+      border-radius: 4px;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .visitor-map-frame > * {
+      max-width: 100% !important;
+    }
+
+    .visitor-map-note {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 11.5px;
+      text-align: center;
+    }
+
     main { min-width: 0; }
     section { margin-bottom: 25px; }
 
@@ -321,9 +359,19 @@
         <li>📍 Chengdu / Hangzhou, China</li>
         <li>✉️ <a href="mailto:liujianqin1@gmail.com">Email</a></li>
         <li>💻 <a href="https://github.com/Unstoppableljq?tab=repositories" target="_blank">Github</a></li>
-        <li>🎓 <a href="https://scholar.google.com/citations?hl=zh-CN&user=U4UEg1kAAAAJ" target="_blank">Google Scholar</a></li>
+        <li>🎓 <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=U4UEg1kAAAAJ" target="_blank">Google Scholar</a></li>
         <!-- <li>📄 <a href="#" target="_blank">CV</a></li> -->
       </ul>
+
+      <div class="visitor-map">
+        <p class="visitor-map-title"><span aria-hidden="true">🌍</span>Live Visitors</p>
+        <div class="visitor-map-frame">
+          <!-- FeedPulse site: unstoppableljq.github.io -->
+          <script async src="https://visitor-tracker-129.emergent.host/api/embed/visitor-globe.js?site_id=500e1015-29c3-4863-b7c9-a7203e492f64&amp;map=flat&amp;sz=sm&amp;theme=ivory&amp;speed=off&amp;w=100%25&amp;h=180"></script>
+          <noscript><a href="https://feed-pulse.com/free-visitor-globe-widget" target="_blank" rel="noopener noreferrer">View visitor map</a></noscript>
+        </div>
+        <p class="visitor-map-note">Visitor locations around the world</p>
+      </div>
     </aside>
 
     <main>
@@ -333,6 +381,7 @@
           <li>
             I am a Ph.D. candidate at the School of Computer Science and Engineering,
             <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a>.
+            I am advised by <a href="https://wp8619.github.io/" target="_blank" rel="noopener noreferrer"><strong>Prof. Peng Wang</strong></a>.
             I am also a research intern at <strong>Alibaba DAMO Academy</strong>, working on multimodal large language models for medical imaging.
           </li>
           <li>
@@ -344,6 +393,7 @@
       <section id="news">
         <h2 class="section-title"><span class="emoji">🔥</span>News</h2>
         <ul class="content-list">
+          <li><span class="date">2026.07:</span> Our paper <strong>RadSight</strong> is now available on <a href="https://arxiv.org/abs/2607.22293" target="_blank">arXiv</a>, with <a href="https://github.com/alibaba-damo-academy/damo-RadSight" target="_blank">code</a> and <a href="https://huggingface.co/unstoppableljq" target="_blank">model checkpoints</a> released.</li>
           <li><span class="date">2026.03:</span> One paper accepted to <strong>CVPR 2026 Findings</strong>.</li>
           <li><span class="date">2026.03:</span> Started my Ph.D. journey at <strong>UESTC</strong>.</li>
           <li><span class="date">2026.01:</span> Started my research internship at <strong>Alibaba DAMO Academy</strong>.</li>
@@ -356,7 +406,18 @@
         <h2 class="section-title"><span class="emoji">📝</span>Selected Publications</h2>
         <p class="pub-note">†: equal contribution; *: corresponding author. <a href="#">(all publications)</a></p>
 
-        <h3 class="pub-group">Zero-shot Anomaly Detection & Vision-Language Learning 💪</h3>
+        <h3 class="pub-group">Medical Multimodal Learning &amp; Radiology AI 🩻</h3>
+        <ul class="pub-list">
+          <li>
+            <span class="badge venue">arXiv</span><span class="badge year">2026</span>
+            <a class="paper-title" href="https://arxiv.org/abs/2607.22293" target="_blank">RadSight: Towards Perceptually Reliable Multimodal Radiology Image Understanding</a>,
+            <span class="authors"><strong>Jianqin Liu</strong><sup>†</sup>, Weiwei Cao<sup>†</sup>, Wanxing Chang<sup>†</sup>, Ruifeng Yuan<sup>†</sup>, Bowen Shi<sup>†</sup>, Zhilin Zheng, Xianjie Zhang, Ling Zhang, Peng Wang<sup>*</sup>, Jianpeng Zhang<sup>*</sup>.</span>
+            <span class="journal">arXiv preprint arXiv:2607.22293.</span>
+            <span class="paper-links"><a href="https://arxiv.org/abs/2607.22293" target="_blank">[arXiv]</a><a href="https://github.com/alibaba-damo-academy/damo-RadSight" target="_blank">[code]</a><a href="https://huggingface.co/unstoppableljq/RadSight-4B" target="_blank">[HF-4B]</a><a href="https://huggingface.co/unstoppableljq/RadSight-8B" target="_blank">[HF-8B]</a></span>
+          </li>
+        </ul>
+
+        <h3 class="pub-group">Zero-shot Anomaly Detection &amp; Vision-Language Learning 💪</h3>
         <ul class="pub-list">
           <li>
             <span class="badge venue">CVPR Findings</span><span class="badge year">2026</span>
@@ -367,7 +428,7 @@
           </li>
         </ul>
 
-        <!-- <h3 class="pub-group">Zero-shot Anomaly Detection & Vision-Language Learning 🔍</h3>
+        <!-- <h3 class="pub-group">Zero-shot Anomaly Detection &amp; Vision-Language Learning 🔍</h3>
         <ul class="pub-list">
           <li>
             <span class="badge venue">Project</span><span class="badge year">2025</span>
@@ -412,7 +473,7 @@
       </section> -->
 
       <div class="footer">
-        Last updated: May 2026 · Template style inspired by a concise academic homepage layout.
+        Last updated: July 2026 · Template style inspired by a concise academic homepage layout.
       </div>
     </main>
   </div>
